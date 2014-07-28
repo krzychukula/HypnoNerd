@@ -39,4 +39,10 @@
     
     [[UIApplication sharedApplication] scheduleLocalNotification:note];
 }
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@"BNRReminderViewController loaded it's view.");
+}
 @end
