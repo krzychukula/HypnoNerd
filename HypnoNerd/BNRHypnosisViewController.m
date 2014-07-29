@@ -34,9 +34,9 @@
     
     CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
     UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];
-    
     textField.borderStyle = UITextBorderStyleRoundedRect;
-    
+    textField.placeholder = @"Hypnotize me";
+    textField.returnKeyType = UIReturnKeyDone;
     [backgroundView addSubview:textField];
     
     self.view = backgroundView;
