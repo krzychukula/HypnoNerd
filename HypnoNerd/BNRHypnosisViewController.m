@@ -45,7 +45,11 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"%@", textField.text);
+    [self drawHypnoticMessage:textField.text];
+    
+    textField.text = @"";
+    [textField resignFirstResponder];
+    
     return YES;
 }
 
@@ -53,6 +57,30 @@
 {
     [super viewDidLoad];
     NSLog(@"BNRHypnosisViewController loaded its view.");
+}
+
+- (void)drawHypnoticMessage:(NSString *)message
+{
+    for (int i = 0; i < 20; i++) {
+        UILabel *messageLabel = [[UILabel alloc] init];
+        messageLabel.backgroundColor = [UIColor clearColor];
+        messageLabel.textColor = [UIColor whiteColor];
+        messageLabel.text = message;
+        
+        [messageLabel sizeToFit];
+        
+        int width = (int)(self.view.bounds.size.width - messageLabel.bounds.size.width);
+        int x = arc4random() % width;
+        
+        int height = (int)(self.view.bounds.size.height - messageLabel.bounds.size.height);
+        int y = arc4random() * height;
+        
+        CGRect frame = messageLabel.frame;
+        frame.origin = CGPointMake(x, y);
+        messageLabel.frame = frame;
+        
+        [self.view addSubview:messageLabel];
+    }
 }
 
 @end
