@@ -9,7 +9,7 @@
 #import "BNRHypnosisViewController.h"
 #import "BNRHypnosisView.h"
 
-@interface BNRHypnosisViewController ()
+@interface BNRHypnosisViewController () <UITextFieldDelegate>
 
 @end
 
