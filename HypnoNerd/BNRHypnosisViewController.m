@@ -37,9 +37,16 @@
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.placeholder = @"Hypnotize me";
     textField.returnKeyType = UIReturnKeyDone;
+    textField.delegate = self;
     [backgroundView addSubview:textField];
     
     self.view = backgroundView;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSLog(@"%@", textField.text);
+    return YES;
 }
 
 - (void)viewDidLoad
