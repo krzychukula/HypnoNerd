@@ -62,9 +62,10 @@
 - (void)drawHypnoticMessage:(NSString *)message
 {
     for (int i = 0; i < 20; i++) {
+        NSLog(@"%@", message);
         UILabel *messageLabel = [[UILabel alloc] init];
         messageLabel.backgroundColor = [UIColor clearColor];
-        messageLabel.textColor = [UIColor whiteColor];
+        messageLabel.textColor = [UIColor blackColor];
         messageLabel.text = message;
         
         [messageLabel sizeToFit];
@@ -73,7 +74,7 @@
         int x = arc4random() % width;
         
         int height = (int)(self.view.bounds.size.height - messageLabel.bounds.size.height);
-        int y = arc4random() * height;
+        int y = arc4random() % height;
         
         CGRect frame = messageLabel.frame;
         frame.origin = CGPointMake(x, y);
@@ -81,6 +82,7 @@
         
         [self.view addSubview:messageLabel];
     }
+
 }
 
 @end
