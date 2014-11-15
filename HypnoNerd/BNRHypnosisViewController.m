@@ -85,9 +85,13 @@
         //Set the lavel's initial alpha
         messageLabel.alpha = 0.0;
         //ANIMATE
-        [UIView animateWithDuration:0.9 animations:^{
-            messageLabel.alpha = 1.0;
-        }];
+        [UIView animateWithDuration:0.9
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             messageLabel.alpha = 1.0;
+                         }
+                         completion:NULL];
         
         UIInterpolatingMotionEffect *motionEffect;
         motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
